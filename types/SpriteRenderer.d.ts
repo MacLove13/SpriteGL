@@ -7,6 +7,7 @@ export default class SpriteRenderer {
     private Text;
     constructor(webglContext: WebGLRenderingContext, Image: HTMLImageElement, Filtering?: number);
     RenderAll(): void;
+    ChangeBGColor(color: any): void;
     UpdateViewPort(width: number, height: number): void;
     DrawSpr(AtlasX: number, AtlasY: number, AtlasWidth: any, AtlasHeigh: any, ScreenX: number, ScreenY: number, ScreenWidth: number, ScreenHeight: any): void;
     SetHight(hight: number): void;

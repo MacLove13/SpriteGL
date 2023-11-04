@@ -1,5 +1,5 @@
 /*!
- * SpriteGL v0.0.0
+ * SpriteGL v0.1.0
  * (c) 2015-present 
  * Released under the ISC License.
  */
@@ -210,7 +210,7 @@ var SpriteRenderer = /** @class */ (function () {
         this.Shader.UseProgram();
         this.CreateTexture(Image, Filtering);
         this.vbo.SetupForDraw(this.Shader.VertexPosAttribute, this.Shader.TexCoordAttribute, Image.width);
-        this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        this.gl.clearColor(0.0, 0.0, 0.0, 0.5);
         this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
         this.gl.enable(this.gl.BLEND);
         this.SetHight(0.0);
@@ -223,6 +223,10 @@ var SpriteRenderer = /** @class */ (function () {
         this.vbo.RenderAllSpr();
         this.gl.bindTexture(this.gl.TEXTURE_2D, this.Text.texture);
         this.vbo.RenderAllTxt();
+    };
+    SpriteRenderer.prototype.ChangeBGColor = function (color) {
+        this.gl.clearColor(color.r, color.g, color.b, color.a);
+        this.gl.clear(this.gl.COLOR_BUFFER_BIT);
     };
     SpriteRenderer.prototype.UpdateViewPort = function (width, height) {
         this.gl.viewport(0, 0, width, height);
